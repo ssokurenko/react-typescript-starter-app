@@ -1,4 +1,9 @@
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faCloudDownloadAlt,
+  faSyncAlt
+} from '@fortawesome/free-solid-svg-icons'
 import { useApi, useConfig } from '../hooks'
 import { Article, Button, Spinner, Card } from '../components'
 
@@ -37,7 +42,12 @@ const DemoApiPage = () => {
       ) : (
         <p className="mt-5 mb-5 text-center">
           <Button onClick={handleOnClick}>
-            {quotes?.length ? 'Reload' : 'Load'} Inspirational Quotes
+            <FontAwesomeIcon
+              icon={quotes?.length ? faSyncAlt : faCloudDownloadAlt}
+            />
+            <span className="inline-block ml-4">
+              {quotes?.length ? 'Reload' : 'Load'} Inspirational Quotes
+            </span>
           </Button>
         </p>
       )}
