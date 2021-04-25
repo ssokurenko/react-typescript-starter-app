@@ -28,7 +28,7 @@ const DemoApiPage = () => {
       .then((response) => {
         if (response?.data?.length) setQuotes(response.data.sort(shuffleItems))
       })
-      .finally(() => setIsLoading(false))
+      .finally(() => setIsLoading(true))
   }
 
   return (
