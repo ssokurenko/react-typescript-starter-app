@@ -3,16 +3,23 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faParachuteBox } from '@fortawesome/free-solid-svg-icons'
 import { useConfig } from './hooks'
-import { Header } from './components'
+import { Header, Footer } from './components'
 import { HomePage, AboutPage } from './pages'
 
 const App = () => {
-  const { appName, appMotto, primaryColor, navLinks } = useConfig()
+  const {
+    appName,
+    appMotto,
+    primaryColor,
+    headerLinks,
+    footerLinks,
+    copyright
+  } = useConfig()
 
   return (
     <Router>
       <>
-        <Header logo={appName} links={navLinks} />
+        <Header logo={appName} links={headerLinks} />
         <div className="container mx-auto px-4">
           <div className="p-6 m-4 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
             <div className="flex-shrink-0">
@@ -39,6 +46,7 @@ const App = () => {
             </div>
           </div>
         </div>
+        <Footer copyright={copyright} links={footerLinks} />
       </>
     </Router>
   )

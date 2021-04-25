@@ -1,11 +1,6 @@
 import React, { useState, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-
-interface RouteLink {
-  path: string
-  label: string
-  isFeatured?: boolean
-}
+import { RouteLink } from '../interfaces'
 
 interface Props {
   logo: ReactNode
@@ -19,7 +14,7 @@ const Header = (props: Props) => {
   const getButtonClass = (isFeatured: boolean = false) =>
     isFeatured
       ? 'px-4 py-1 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-indigo-400'
-      : 'text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400'
+      : 'text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform hover:text-indigo-400'
 
   return (
     <header className="bg-gray-800">
@@ -31,7 +26,6 @@ const Header = (props: Props) => {
           >
             {logo}
           </Link>
-
           <div
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="flex md:hidden"
@@ -43,7 +37,7 @@ const Header = (props: Props) => {
             >
               <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
                 ></path>
               </svg>
@@ -57,7 +51,11 @@ const Header = (props: Props) => {
           } flex-col mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0`}
         >
           {links.map((link) => (
-            <Link to={link.path} className={getButtonClass(link.isFeatured)}>
+            <Link
+              to={link.path}
+              className={getButtonClass(link.isFeatured)}
+              key={link.path}
+            >
               {link.label}
             </Link>
           ))}
