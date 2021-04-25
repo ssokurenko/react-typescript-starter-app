@@ -1,3 +1,7 @@
 @tailwind base;
+article a {
+  @apply no-underline shadow-link;
+}
+
 @tailwind components;
 @tailwind utilities;
