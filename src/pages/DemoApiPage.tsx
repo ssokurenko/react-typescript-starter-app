@@ -13,13 +13,15 @@ const DemoApiPage = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [quotes, setQuotes] = useState([] as Quote[])
 
+  const shuffleItems = () => Math.random() - 0.5
+
   const handleOnClick = () => {
     setQuotes([])
     setIsLoading(true)
 
     getQuotes(quotesApiUrl)
       .then((response) => {
-        if (response?.data?.length) setQuotes(response.data)
+        if (response?.data?.length) setQuotes(response.data.sort(shuffleItems))
       })
       .finally(() => setIsLoading(false))
   }
