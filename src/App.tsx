@@ -1,50 +1,31 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faParachuteBox } from '@fortawesome/free-solid-svg-icons'
 import { useConfig } from './hooks'
 import { Header, Footer } from './components'
-import { HomePage, AboutPage } from './pages'
+import { HomePage, AboutPage, NotFoundPage, TemplatePage } from './pages'
 
 const App = () => {
-  const {
-    appName,
-    appMotto,
-    primaryColor,
-    headerLinks,
-    footerLinks,
-    copyright
-  } = useConfig()
+  const { appName, headerLinks, footerLinks, copyright } = useConfig()
 
   return (
     <Router>
       <>
         <Header logo={appName} links={headerLinks} />
-        <div className="container mx-auto px-4">
-          <div className="p-6 m-4 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
-            <div className="flex-shrink-0">
-              <FontAwesomeIcon
-                icon={faParachuteBox}
-                size="3x"
-                color={primaryColor}
-              />
-            </div>
-            <div>
-              <div className="text-xl font-medium text-black">{appName}</div>
-              <p className="text-gray-500">{appMotto}</p>
-
-              <div>
-                <Switch>
-                  <Route path="/about">
-                    <AboutPage />
-                  </Route>
-                  <Route path="/">
-                    <HomePage />
-                  </Route>
-                </Switch>
-              </div>
-            </div>
-          </div>
+        <div className="container mx-auto px-4 mt-6 mb-6">
+          <Switch>
+            <Route path="/about" exact>
+              <AboutPage />
+            </Route>
+            <Route path="/template-page" exact>
+              <TemplatePage />
+            </Route>
+            <Route path="/" exact>
+              <HomePage />
+            </Route>
+            <Route path="/">
+              <NotFoundPage />
+            </Route>
+          </Switch>
         </div>
         <Footer copyright={copyright} links={footerLinks} />
       </>

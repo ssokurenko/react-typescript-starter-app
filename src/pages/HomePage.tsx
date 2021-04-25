@@ -1,7 +1,10 @@
 import React from 'react'
+import { Article } from '../components'
 
-const HomePage = () => {
-  return <h1>HomePage content</h1>
-}
+const HomePage = () => (
+  <Article title="Welcome">
+    <p className="text-bold">Welcome content.</p>
+  </Article>
+)
 
 export default HomePage
