@@ -4,11 +4,17 @@ const useConfig = () => {
   const currentYear = new Date().getFullYear()
   return {
     appName: 'React TypeScript Starter App',
+    appMotto:
+      'Powered by React, TypeScript, Router, Tailwind CSS, Font Awesome, Axios.',
     headerLinks: [
       { path: '/about', label: 'About' },
       { path: '/template-page', label: 'Template' },
       { path: '/login', label: 'Login', isFeatured: true },
       { path: '/sign-up', label: 'Sign up', isFeatured: true }
+    ],
+    heroLinks: [
+      { path: '/about', label: 'Getting started' },
+      { path: '/template-page', label: 'Template page' }
     ],
     footerLinks: [
       { path: '/', label: 'Home' },
