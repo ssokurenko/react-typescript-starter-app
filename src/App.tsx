@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useConfig } from './hooks'
 import { Header, Footer, HeroSection } from './components'
-import { AboutPage, NotFoundPage, TemplatePage } from './pages'
+import { AboutPage, NotFoundPage, DemoApiPage, TemplatePage } from './pages'
 
 const App = () => {
   const {
@@ -18,7 +18,6 @@ const App = () => {
     <Router>
       <>
         <Header logo={appName} links={headerLinks} />
-
         <Switch>
           <Route path="/" exact>
             <HeroSection
@@ -32,6 +31,9 @@ const App = () => {
           </Route>
           <Route path="/template-page" exact>
             <TemplatePage />
+          </Route>
+          <Route path="/api-demo" exact>
+            <DemoApiPage />
           </Route>
           <Route path="/">
             <NotFoundPage />

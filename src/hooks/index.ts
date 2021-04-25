@@ -1,3 +1,4 @@
 import useConfig from './useConfig'
+import useApi from './useApi'
 
-export { useConfig }
+export { useConfig, useApi }
