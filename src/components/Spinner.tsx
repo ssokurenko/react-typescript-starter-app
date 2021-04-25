@@ -7,11 +7,12 @@ interface Props {
 }
 
 const Spinner = (props: Props) => {
-  const { isVisible = false, size = 24 } = props
+  const { isVisible = false, size = 80 } = props
   return isVisible ? (
     <div className=" mt-4 mb-4">
       <div
-        className={`loader ease-linear rounded-full border-8 border-t-8 border-gray-100 h-${size} w-${size} m-auto`}
+        style={{ width: `${size}px`, height: `${size}px` }}
+        className={`loader ease-linear rounded-full border-8 border-t-8 border-gray-100 m-auto`}
       ></div>
     </div>
   ) : null
